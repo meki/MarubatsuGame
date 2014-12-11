@@ -10,8 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 
 public class MainActivity extends Activity implements View.OnClickListener,
 		Panel.StateChangeLister
@@ -31,14 +29,6 @@ public class MainActivity extends Activity implements View.OnClickListener,
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		ShortArray arr = new ShortArray();
-		arr.ensureCapacity(1000000);
-
-		for (int i = 0; i < 1000000; ++i)
-		{
-			arr.add((short)100);
-		}
 
 		bt00 = (Button)findViewById(R.id.button00);
 		bt10 = (Button)findViewById(R.id.button10);
@@ -142,21 +132,38 @@ public class MainActivity extends Activity implements View.OnClickListener,
 	@Override
 	public void onStateChanged (PanelState type, int x, int y) {
 
-		Button v = null;
+		Button button = getButton(x, y);
+
+		switch (type)
+		{
+			case Blank:
+				button.setText("");
+				break;
+
+			case Check_Player1:
+				button.setText("○");
+				button.setTextColor(Color.BLUE);
+				break;
+
+			case Check_Player2:
+				button.setText("×");
+				button.setTextColor(Color.RED);
+		}
+	}
+
+	Button getButton(int x, int y)
+	{
 		switch (x)
 		{
 			case 0:
 				switch (y)
 				{
 					case 0:
-						v = bt00;
-						break;
+						return bt00;
 					case 1:
-						v = bt10;
-						break;
+						return bt01;
 					case 2:
-						v = bt20;
-						break;
+						return bt02;
 				}
 				break;
 
@@ -164,14 +171,11 @@ public class MainActivity extends Activity implements View.OnClickListener,
 				switch (y)
 				{
 					case 0:
-						v = bt01;
-						break;
+						return bt10;
 					case 1:
-						v = bt11;
-						break;
+						return bt11;
 					case 2:
-						v = bt21;
-						break;
+						return bt12;
 				}
 				break;
 
@@ -179,34 +183,16 @@ public class MainActivity extends Activity implements View.OnClickListener,
 				switch (y)
 				{
 					case 0:
-						v = bt02;
-						break;
+						return bt20;
 					case 1:
-						v = bt12;
-						break;
+						return bt21;
 					case 2:
-						v = bt22;
-						break;
+						return bt22;
 				}
 				break;
 		}
 
-		if (v == null) { return; }
-
-		switch (type)
-		{
-			case Blank:
-				v.setText("");
-				break;
-
-			case Check_Player1:
-				v.setText("○");
-				v.setTextColor(Color.BLUE);
-				break;
-
-			case Check_Player2:
-				v.setText("×");
-				v.setTextColor(Color.RED);
-		}
+		// ここには来ないはず！
+		return null;
 	}
 }
