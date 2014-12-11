@@ -29,6 +29,12 @@ class Panel extends ArrayList<PanelState>
 		}
 	}
 
+	/** (x, y)位置のパネルの状態を取得する. */
+	PanelState get(int x, int y)
+	{
+		return get(x + y * WIDTH);
+	}
+
 	/** ユーザ入力. */
 	public boolean changeState(PlayerType type, int x, int y)
 	{
