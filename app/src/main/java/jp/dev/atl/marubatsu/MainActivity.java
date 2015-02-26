@@ -127,7 +127,12 @@ public class MainActivity extends Activity implements View.OnClickListener,
 		{
 			Toast.makeText(this, "ボタン (" + p.x + ", " + p.y + ") は押せないよ", Toast.LENGTH_SHORT).show();
 		}
-	}
+
+        panel.checkGameEnd();
+
+    }
+
+
 
 	@Override
 	public void onStateChanged (PanelState type, int x, int y) {
@@ -151,7 +156,13 @@ public class MainActivity extends Activity implements View.OnClickListener,
 		}
 	}
 
-	Button getButton(int x, int y)
+    @Override
+    public void onGameEnd(PlayerType type) {
+        Directage dir = new Directage();
+        dir.showWinAnimation(this,type);
+    }
+
+    Button getButton(int x, int y)
 	{
 		switch (x)
 		{
