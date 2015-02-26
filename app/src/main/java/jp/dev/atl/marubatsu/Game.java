@@ -15,6 +15,7 @@ public class Game implements Panel.StateChangeLister {
 	}
 
 	private Game () {
+		panel.addListener(this);
 	}
 
 	public Panel getPanel () {
