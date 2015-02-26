@@ -1,13 +1,14 @@
 package jp.dev.atl.marubatsu;
 
-import java.util.ArrayList;
-
 /**
  * Created by Sashida on 2014/11/27.
  */
-public class Game {
+public class Game implements Panel.StateChangeLister {
 	private static Game ourInstance = new Game();
 	private Panel panel = new Panel();
+	private PlayerType currentPlayer = PlayerType.Player1;
+
+	PlayerType getCurrentPlayer() { return currentPlayer; }
 
 	public static Game getInstance () {
 		return ourInstance;
@@ -20,4 +21,15 @@ public class Game {
 		return panel;
 	}
 
+	@Override
+	public void onStateChanged (PanelState type, int x, int y) {
+
+		currentPlayer = (currentPlayer == PlayerType.Player1) ? PlayerType.Player2 : PlayerType.Player1;
+
+	}
+
+	@Override
+	public void onGameEnd (PlayerType type) {
+
+	}
 }

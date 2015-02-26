@@ -121,7 +121,7 @@ public class MainActivity extends Activity implements View.OnClickListener,
 		}  // switch
 
 		Panel panel = Game.getInstance().getPanel();
-		boolean isChanged = panel.changeState(PlayerType.Player1, p.x, p.y);
+		boolean isChanged = panel.changeState(Game.getInstance().getCurrentPlayer(), p.x, p.y);
 
 		if (!isChanged)
 		{
