@@ -114,7 +114,23 @@ class Panel extends ArrayList<PanelState> {
                 return true;
             }
         }
-        if (panel.get(1, 0) == PanelState.Check_Player1 && panel.get(1, 1) == PanelState.Check_Player1 && panel.get(1, 2) == PanelState.Check_Player1) {
+        if (panel.get(1, 0)==panel.get(1, 1)&&panel.get(1, 0)==panel.get(1, 2)) {
+            if (panel.get(1, 0)==PanelState.Check_Player1&&player==PlayerType.Player1) {
+                return true;
+            }
+            if (panel.get(1, 0)==PanelState.Check_Player2&&player==PlayerType.Player2) {
+                return true;
+            }
+        }
+        if (panel.get(2, 0)==panel.get(2, 1)&&panel.get(2, 0)==panel.get(2, 2)) {
+            if (panel.get(2, 0)==PanelState.Check_Player1&&player==PlayerType.Player1) {
+                return true;
+            }
+            if (panel.get(2, 0)==PanelState.Check_Player2&&player==PlayerType.Player2) {
+                return true;
+            }
+        }
+        if (panel.get(0, 0)==panel.get(1, 0)&&panel.get(0, 0)==panel.get(2, 0)) {
             if (panel.get(0, 0)==PanelState.Check_Player1&&player==PlayerType.Player1) {
                 return true;
             }
@@ -122,7 +138,23 @@ class Panel extends ArrayList<PanelState> {
                 return true;
             }
         }
-        if (panel.get(2, 0) == PanelState.Check_Player1 && panel.get(2, 1) == PanelState.Check_Player1 && panel.get(2, 2) == PanelState.Check_Player1) {
+        if (panel.get(0, 1)==panel.get(1, 1)&&panel.get(0, 1)==panel.get(2, 1)) {
+            if (panel.get(0, 1)==PanelState.Check_Player1&&player==PlayerType.Player1) {
+                return true;
+            }
+            if (panel.get(0, 1)==PanelState.Check_Player2&&player==PlayerType.Player2) {
+                return true;
+            }
+        }
+        if (panel.get(0, 2)==panel.get(1, 2)&&panel.get(0, 2)==panel.get(2, 2)) {
+            if (panel.get(0, 2)==PanelState.Check_Player1&&player==PlayerType.Player1) {
+                return true;
+            }
+            if (panel.get(0, 2)==PanelState.Check_Player2&&player==PlayerType.Player2) {
+                return true;
+            }
+        }
+        if (panel.get(0, 0)==panel.get(1, 1)&&panel.get(0, 0)==panel.get(2, 2)) {
             if (panel.get(0, 0)==PanelState.Check_Player1&&player==PlayerType.Player1) {
                 return true;
             }
@@ -130,43 +162,11 @@ class Panel extends ArrayList<PanelState> {
                 return true;
             }
         }
-        if (panel.get(0, 0) == PanelState.Check_Player1 && panel.get(1, 0) == PanelState.Check_Player1 && panel.get(2, 0) == PanelState.Check_Player1) {
-            if (panel.get(0, 0)==PanelState.Check_Player1&&player==PlayerType.Player1) {
+        if (panel.get(0, 2)==panel.get(1, 1)&&panel.get(0, 2)==panel.get(2, 0)) {
+            if (panel.get(0, 2)==PanelState.Check_Player1&&player==PlayerType.Player1) {
                 return true;
             }
-            if (panel.get(0, 0)==PanelState.Check_Player2&&player==PlayerType.Player2) {
-                return true;
-            }
-        }
-        if (panel.get(0, 1) == PanelState.Check_Player1 && panel.get(1, 1) == PanelState.Check_Player1 && panel.get(2, 1) == PanelState.Check_Player1) {
-            if (panel.get(0, 0)==PanelState.Check_Player1&&player==PlayerType.Player1) {
-                return true;
-            }
-            if (panel.get(0, 0)==PanelState.Check_Player2&&player==PlayerType.Player2) {
-                return true;
-            }
-        }
-        if (panel.get(0, 2) == PanelState.Check_Player1 && panel.get(1, 2) == PanelState.Check_Player1 && panel.get(2, 2) == PanelState.Check_Player1) {
-            if (panel.get(0, 0)==PanelState.Check_Player1&&player==PlayerType.Player1) {
-                return true;
-            }
-            if (panel.get(0, 0)==PanelState.Check_Player2&&player==PlayerType.Player2) {
-                return true;
-            }
-        }
-        if (panel.get(0, 0) == PanelState.Check_Player1 && panel.get(1, 1) == PanelState.Check_Player1 && panel.get(2, 2) == PanelState.Check_Player1) {
-            if (panel.get(0, 0)==PanelState.Check_Player1&&player==PlayerType.Player1) {
-                return true;
-            }
-            if (panel.get(0, 0)==PanelState.Check_Player2&&player==PlayerType.Player2) {
-                return true;
-            }
-        }
-        if (panel.get(0, 2) == PanelState.Check_Player1 && panel.get(1, 1) == PanelState.Check_Player1 && panel.get(2, 0) == PanelState.Check_Player1) {
-            if (panel.get(0, 0)==PanelState.Check_Player1&&player==PlayerType.Player1) {
-                return true;
-            }
-            if (panel.get(0, 0)==PanelState.Check_Player2&&player==PlayerType.Player2) {
+            if (panel.get(0, 2)==PanelState.Check_Player2&&player==PlayerType.Player2) {
                 return true;
             }
         }
